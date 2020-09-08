@@ -11,7 +11,7 @@ function Horn (object) {
     this.horns = object.horns;
     array.push(this);
 }
-
+console.log
 
 
 $.ajax('/data/page-1.json', {method: 'GET', dataType: 'JSON'})
@@ -28,16 +28,29 @@ Horn.prototype.render = function(){
     const myTemplate = $('#photo-template').html();
     const $newSection = $(`<section>${myTemplate}</section>`);
     $newSection.find('h2').text(this.title);
-    console.log($newSection);
     $newSection.find('img').attr('src', this.image_url);
+    $newSection.find('p').text(`${this.description}. The number of horns is ${this.horns}.`)
     $('main').append($newSection);
 }
 
-
-// {
-//     "image_url": "http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg",
-//     "title": "UniWhal",
-//     "description": "A unicorn and a narwhal nuzzling their horns",
-//     "keyword": "narwhal",
-//     "horns": 1
-//   },
+Horn.dropDown = () => {
+    let tempArray = [];
+    hornArray.forEach(value => {
+      if (!tempArray.includes(value.keyword)) {
+        tempArray.push(value.keyword);
+      }
+    })
+    tempArray.forEach(value => {
+      const $newOptionTag = $(`<option value="${value}">${value}</option>`);
+      $('select').append($newOptionTag);
+    })
+  }
+  $('select').on('change', handler);
+  function handler(event) {
+    $('section').hide();
+    hornArray.forEach((object) => {
+      if(event.target.value === object.keyword) {
+        $(`section[id = ${object.keyword}]`).show();
+      }
+    });
+  }
