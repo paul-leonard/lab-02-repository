@@ -1,6 +1,6 @@
 body{
     text-align: center;
-    background-color: lightcyan;
+    background-color: rgb(133, 158, 190);
    margin: auto;
 }
 
@@ -10,7 +10,11 @@ main{
 }
 
 h1{
-    font-size: 3em;
+    font-size: 6em;
     font-family: 'Fredoka One', cursive;
-font-family: 'Yanone Kaffeesatz', sans-serif;
+/* font-family: 'Yanone Kaffeesatz', sans-serif; */
+}
+
+header{
+    padding-bottom: 20px;
 }
