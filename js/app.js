@@ -1,7 +1,17 @@
+
 'use strict'
 $().ready();
 
 const array = [];
+
+$.ajax('/data/page-1.json', {method: 'GET', dataType: 'JSON'})
+ .then(hornInfo => {
+    hornInfo.forEach(horn => {
+        new Horn(horn).render();
+        
+    })
+})
+.then(() => Horn.dropDown());
 
 function Horn (object) {
     this.image_url = object.image_url;
@@ -14,19 +24,11 @@ function Horn (object) {
 console.log
 
 
-$.ajax('/data/page-1.json', {method: 'GET', dataType: 'JSON'})
- .then(hornInfo => {
-    hornInfo.forEach(horn => {
-        new Horn(horn).render();
-        
-    });
-});
-// .then(() => { Horn.dropDown()});
 
 
 Horn.prototype.render = function(){
     const myTemplate = $('#photo-template').html();
-    const $newSection = $(`<section>${myTemplate}</section>`);
+    const $newSection = $(`<section id="${this.keyword}">${myTemplate}</section>`);
     $newSection.find('h2').text(this.title);
     $newSection.find('img').attr('src', this.image_url);
     $newSection.find('p').text(`${this.description}. The number of horns is ${this.horns}.`)
@@ -34,13 +36,13 @@ Horn.prototype.render = function(){
 }
 
 Horn.dropDown = () => {
-    let tempArray = [];
-    hornArray.forEach(value => {
-      if (!tempArray.includes(value.keyword)) {
-        tempArray.push(value.keyword);
+    let selectionList = [];
+    array.forEach(value => {
+      if (!selectionList.includes(value.keyword)) {
+        selectionList.push(value.keyword);
       }
     })
-    tempArray.forEach(value => {
+    selectionList.forEach(value => {
       const $newOptionTag = $(`<option value="${value}">${value}</option>`);
       $('select').append($newOptionTag);
     })
@@ -48,9 +50,10 @@ Horn.dropDown = () => {
   $('select').on('change', handler);
   function handler(event) {
     $('section').hide();
-    hornArray.forEach((object) => {
+    array.forEach((object) => {
       if(event.target.value === object.keyword) {
         $(`section[id = ${object.keyword}]`).show();
       }
     });
-  }
+   
+  } 
