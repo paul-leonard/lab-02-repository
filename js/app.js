@@ -4,7 +4,7 @@ $().ready();
 
 const array = [];
 
-$.ajax('/data/page-1.json', {method: 'GET', dataType: 'JSON'})
+$.ajax('./data/page-1.json', {method: 'GET', dataType: 'JSON'})
  .then(hornInfo => {
     hornInfo.forEach(horn => {
         new Horn(horn).render();
@@ -51,7 +51,7 @@ Horn.dropDown = () => {
   function handler(event) {
     $('section').hide();
     array.forEach((object) => {
-      if(event.target.value === object.keyword) {
+      if(this.value === object.keyword) {
         $(`section[id = ${object.keyword}]`).show();
       }
     });

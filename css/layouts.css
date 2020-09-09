@@ -1,4 +1,22 @@
 img{
-    width: 250px;
+    width: 200px;
     height: auto;
+    /* float: left; */
+}
+
+section:not(#photo-template){
+    width: 300px;
+    height: 425px;
+    float: left;
+    padding: 2px;
+    margin: 5px;
+    border: 3px solid black;
+    text-align: center;
+    background-color: lightcyan;
+    border-radius: 15px;
+}
+
+#dropDown{
+font-size: 1.5em;
+padding: 5px;
 }
