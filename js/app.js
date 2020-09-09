@@ -51,7 +51,7 @@ Horn.dropDown = () => {
   function handler(event) {
     $('section').hide();
     array.forEach((object) => {
-      if(event.target.value === object.keyword) {
+      if(this.value === object.keyword) {
         $(`section[id = ${object.keyword}]`).show();
       }
     });
