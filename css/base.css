@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+    background-color: lightcyan;
+   margin: auto;
+}
+
+main{
+    margin: auto;
+
+}
+
+h1{
+    font-size: 3em;
+    font-family: 'Fredoka One', cursive;
+font-family: 'Yanone Kaffeesatz', sans-serif;
+}
