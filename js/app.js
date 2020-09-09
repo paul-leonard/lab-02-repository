@@ -4,7 +4,7 @@ $().ready();
 
 const array = [];
 
-$.ajax('/data/page-1.json', {method: 'GET', dataType: 'JSON'})
+$.ajax('./data/page-1.json', {method: 'GET', dataType: 'JSON'})
  .then(hornInfo => {
     hornInfo.forEach(horn => {
         new Horn(horn).render();
