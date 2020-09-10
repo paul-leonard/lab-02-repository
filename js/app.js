@@ -1,31 +1,4 @@
 
-// TODO List:
-
-// Feature 0: Refactor
-// x improvements from in-class review
-
-// Feature 1: Pages:  paginate images
-// x create a page-2.JSON
-// x get page-2 through constructor (new ajax)
-// x add page key to each HornObject's to say displayPage
-// x add class attributes to each HTML section
-// x add button
-// x add eventListener for button
-// x hide/show based off of button selection
-// - only show keywords for group in the dropdown list
-// x filter by keyword
-
-// Feature 2: mustache for templating
-// x template from body to head in HTML
-// x use mustache within render prototype function
-
-// Feature 3: flexbox for styling
-// - remove all floats
-// - add in flexbox
-
-// Feature 4: ability for user to sort images
-// - sort by horns number
-// - alphabetically title
 
 
 
