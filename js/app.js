@@ -8,15 +8,16 @@
 // x create a page-2.JSON
 // x get page-2 through constructor (new ajax)
 // x add page key to each HornObject's to say displayPage
-// - add class attributes to each HTML section
-// - add button
-// - add eventListener for button
-// - hide/show based off of button selection
+// x add class attributes to each HTML section
+// x add button
+// x add eventListener for button
+// x hide/show based off of button selection
 // - only show keywords for group in the dropdown list
+// x filter by keyword
 
 // Feature 2: mustache for templating
-// - template from body to head in HTML
-// - use mustache within render prototype function
+// x template from body to head in HTML
+// x use mustache within render prototype function
 
 // Feature 3: flexbox for styling
 // - remove all floats
@@ -33,8 +34,9 @@ $().ready();
 
 const array = [];
 let selectionList = [];
+let animalGroupToDisplay = 1;
 
-
+// ************* AJAX DATA *************
 $.ajax('./data/page-1.json', { method: 'GET', dataType: 'JSON' })
   .then(hornInfo => {
     hornInfo.forEach(horn => {
@@ -42,13 +44,10 @@ $.ajax('./data/page-1.json', { method: 'GET', dataType: 'JSON' })
       beast.animalGroup = 1;
       beast.render();
     })
-
-
     $(`section[class = 1]`).show();
     $(`section[class = 2]`).hide();
   })
-  .then(() => Horn.dropDown());
-
+  // .then(() => Horn.dropDown());
 
 $.ajax('./data/page-2.json', { method: 'GET', dataType: 'JSON' })
   .then(hornInfo => {
@@ -62,9 +61,7 @@ $.ajax('./data/page-2.json', { method: 'GET', dataType: 'JSON' })
   })
   .then(() => Horn.dropDown());
 
-
-
-
+// ************* FUNCTION/METHOD DECLARATIONS *************
 function Horn(object) {
   this.image_url = object.image_url;
   this.title = object.title;
@@ -74,14 +71,10 @@ function Horn(object) {
   array.push(this);
 }
 
-
 Horn.prototype.render = function () {
   const myTemplate = $('#photo-template').html();
-  const $newSection = $(`<section class="${this.animalGroup}" id="${this.keyword}">${myTemplate}</section>`);
-  $newSection.find('h2').text(this.title);
-  $newSection.find('img').attr('src', this.image_url);
-  $newSection.find('p').text(`${this.description}. The number of horns is ${this.horns}.`);
-  $('main').append($newSection);
+  let html = Mustache.render(myTemplate,this);
+  $('main').append(html);
 }
 
 Horn.dropDown = () => {
@@ -97,20 +90,33 @@ Horn.dropDown = () => {
   });
 };
 
-
+// ************* FUNCTION HANDLER DECLARATIONS *************
 function handler(event) {
   $('section').hide();
-  $(`section[id = ${event.keyword}]`).show();
+  array.forEach((object) => {
+    if(this.value === object.keyword) {
+      $(`section[id = ${object.keyword}]`).show();
+    }
+  });
 }
 
+function handlerAnimalGroup() {
+  $('section').hide(500);
+
+  if (animalGroupToDisplay === 1) {
+    animalGroupToDisplay = 2 ;
+  } else {
+    animalGroupToDisplay = 1;
+  }
+
+  array.forEach((object) => {
+    if(animalGroupToDisplay === object.animalGroup) {
+      $(`section[class = ${animalGroupToDisplay}]`).show(500);
+    }
+  });
+}
+
+// ************* EVENT LISTENERS *************
 $('select').on('change', handler);
-
-
-
-function handlerAnimalGroup(event) {
-  $('section').toggle(500);
-}
-
-
 
 $('button').on('click', handlerAnimalGroup);

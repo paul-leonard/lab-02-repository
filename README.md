@@ -37,8 +37,14 @@ Start time: 1:19
 Finish time: 1:38
 Actual time needed to complete: 29 minutes
 
-Number and name of feature: Feature 1
+Number and name of feature: Feature 1 page2
 Estimate of time needed to complete: 40 min
-Start time: 2:30
-Finish time: 
-Actual time needed to complete: 
+Start time: 2:30 / 
+Finish time: 4:20 /
+Actual time needed to complete: 1:50+?
+
+Number and name of feature: Feature 2 mustache
+Estimate of time needed to complete: 1 hour
+Start time: 4:30
+Finish time: 5:05
+Actual time needed to complete: 35 minutes
