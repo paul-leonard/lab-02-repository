@@ -1,6 +1,34 @@
 # lab-02-repository
 jQuery Selectors and Events
 
+ Lab-03 Features: 
+
+ Feature 0: Refactor
+ x improvements from in-class review
+ x Feature 1: Pages:  paginate images
+ x create a page-2.JSON
+ x get page-2 through constructor (new ajax)
+ x add page key to each HornObject's to say displayPage
+ x add class attributes to each HTML section
+ x add button
+ x add eventListener for button
+ x hide/show based off of button selection
+ - only show keywords for group in the dropdown list
+ x filter by keyword
+
+ Feature 2: mustache for templating
+ x template from body to head in HTML
+ x use mustache within render prototype function
+
+ Feature 3: flexbox for styling
+ x remove all floats
+ x add in flexbox
+
+ Feature 4: ability for user to sort images
+ - sort by horns number
+ - alphabetically title
+
+
 
 *******  Time Estimates  *******
 
@@ -52,5 +80,5 @@ Actual time needed to complete: 35 minutes
 Number and name of feature: Feature 3 Flexbox
 Estimate of time needed to complete: 45 minutes
 Start time: 5:10
-Finish time: 
-Actual time needed to complete:  minutes
+Finish time: 5:45
+Actual time needed to complete: 35 minutes
