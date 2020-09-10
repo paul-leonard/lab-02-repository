@@ -48,3 +48,9 @@ Estimate of time needed to complete: 1 hour
 Start time: 4:30
 Finish time: 5:05
 Actual time needed to complete: 35 minutes
+
+Number and name of feature: Feature 3 Flexbox
+Estimate of time needed to complete: 45 minutes
+Start time: 5:10
+Finish time: 
+Actual time needed to complete:  minutes
