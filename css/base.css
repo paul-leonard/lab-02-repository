@@ -1,16 +1,20 @@
 body{
     text-align: center;
     background-color: rgb(133, 158, 190);
-   margin: auto;
+     margin: auto;
 }
 
 main{
-    margin: auto;
-
+    /* margin: auto; */
+    display: flex;
+    /* max-width: 960px; */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 h1{
     font-size: 6em;
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 30px;
     font-family: 'Fredoka One', cursive;
@@ -30,8 +34,27 @@ p {
     width: 200px;
     margin: auto;
     text-align: left;
+    
 }
 
 header{
     padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+
+button{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-family: sans-serif;
+}
+
+select{
+    font-family: sans-serif;
 }
